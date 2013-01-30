@@ -1,0 +1,57 @@
+<div class="header">
+
+	<% if signed_in? %>
+	<div class="navbar to-the-right">
+		<div class="navbar-inner">
+			<ul class="nav">
+				<li>
+					<div class="btn-group">
+  						<a class="btn btn-primary" href="<%= user_path(current_user)%>"><i class="icon-user icon-white"></i><%= current_user.username %></a>
+  						<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+  						<ul class="dropdown-menu">
+    						<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+    						<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+    						<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+    						<li class="divider"></li>
+    						<li><%= link_to "Logout", '/logout' %></li>
+  						</ul>
+					</div>
+				</li>
+  			</ul>
+  		</div>
+	</div>
+	<% else %>
+	<div class="navbar to-the-right">
+		<div class="navbar-inner">
+			<ul class="nav">
+				<li><%= link_to "Register", '/register' %></li>
+  				<li class="divider-vertical"></li>
+  				<li><%= link_to "Login", '/login' %></li>
+  			</ul>
+  		</div>
+	</div>
+	<% end %>
+
+	<% rails_logo = image_tag("logo.gif", :class => "logo") %>
+	<%= link_to rails_logo, root_path %>
+
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li class="active"><%= link_to 'Home', root_path %></li>
+					<li class="dropdown">
+                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+
+                      </ul>
+                    </li>
+					<li><a href="#">Reviews</a></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</div>
+
