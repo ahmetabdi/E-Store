@@ -1,0 +1,49 @@
+<style type="text/css">
+form {
+margin: 0 0 0px;
+}
+.span2 {
+width: 150px;
+}
+</style>
+
+<h1>Shopping Cart</h1>
+<br />
+<table class="table table-bordered">
+  <tr>
+    <th></th>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Full Price</th>
+  </tr>
+  <% for cart_item in @cart.cart_items %>
+    <tr>
+      <td><center><%= image_tag(cart_item.product.image_url, :height => '150', :width => '150') %></center></td>
+      <td><%= cart_item.product.name %></td>
+      <td><%= cart_item.quantity %></td>
+      <td><%= number_to_currency(cart_item.unit_price, :unit => "£") %></td>
+      <td><%= number_to_currency(cart_item.full_price, :unit => "£") %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="3"></td>
+    <td>
+      <b>Total:</b> <%= number_to_currency(@cart.total_price, :unit => "£") %>
+    </td>
+  </tr>
+</table>
+
+<div class="row">
+      <div class="span5">
+            <%= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-primary" %>
+      </div>      
+      <div class="span2">
+            <% if session[:last_product_page] %>
+              <%= link_to "Continue Shopping", session[:last_product_page], :class => "btn btn-primary" %>
+            <% end %>
+      </div>      
+      <div>
+            <%= button_to "Checkout" , new_order_url, :method => :get, :class => "btn btn-primary pull-right" %>
+      </div>
+</div>

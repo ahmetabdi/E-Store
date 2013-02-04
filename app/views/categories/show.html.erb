@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @category.name %></h1>
+
+<% @category.products.each do |product| %>
+  <div class="entry">
+    <h3><%= link_to h(product.name), product %></h3>
+    <% if product.image_url %>
+    <%= image_tag(product.image_url) %><br />
+    <% end %>
+
+    <% if product.description? %>
+    <%=sanitize product.description %><br />
+    <% else %>
+    No Description<br />
+    <% end %>
+
+    Category: <%=h product.category.name %>
+    <div class="price_line">
+      <span class="price"><%= number_to_currency(product.price, :unit => "£") %></span>
+      <%= button_to 'Add to Cart', cart_items_path(:product_id => product), :class => "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

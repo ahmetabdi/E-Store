@@ -32,8 +32,8 @@
 	</div>
 	<% end %>
 
-	<% rails_logo = image_tag("logo.gif", :class => "logo") %>
-	<%= link_to rails_logo, root_path %>
+	<% logo = image_tag("logo.gif", :class => "logo") %>
+	<%= link_to logo, root_path %>
 
 	<div class="navbar">
 		<div class="navbar-inner">
@@ -41,14 +41,19 @@
 				<ul class="nav">
 					<li class="active"><%= link_to 'Home', root_path %></li>
 					<li class="dropdown">
-                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
+                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Browse Categories <b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-
+                      <% Category.all.each do |category| %>
+    					<li><%= link_to category.name, category %></li>
+					  <% end %>
                       </ul>
                     </li>
-					<li><a href="#">Reviews</a></li>
-					<li></li>
+					<li><%= link_to 'All Products', products_path %></a></li>
+					<li><%= link_to 'Categories', categories_path %></li>
 				</ul>
+				<%= form_tag root_path, :class => 'navbar-form to-the-right', :method => 'get' do %>
+    					<%= text_field_tag :search, params[:search], :class => 'span2', :placeholder => 'Search' %>
+					<% end %>
 			</div>
 		</div>
 	</div>
