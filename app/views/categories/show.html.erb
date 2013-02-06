@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div id="cart" class="right">
+  <%= render @cart %>
+</div>
+
+
+<div class="left">
+  
 <h1><%= @category.name %></h1>
 
 <% @category.products.each do |product| %>
@@ -22,3 +29,4 @@
     </div>
   </div>
 <% end %>
+</div>

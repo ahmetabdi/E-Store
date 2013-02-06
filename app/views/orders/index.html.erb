@@ -1,12 +1,9 @@
-<h1>Listing orders</h1>
+<h1>Orders</h1>
 
-<table>
+<table class="table table-bordered">
   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Pay type</th>
-    <th>Status</th>
+    <th>Orders</th>
+    <th>Value</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,18 +11,30 @@
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%= order.name %></td>
-    <td><%= order.address %></td>
-    <td><%= order.email %></td>
-    <td><%= order.pay_type %></td>
-    <td><%= order.status %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+        <a href="/orders/<%= order.id %>">#<%= order.id %> - <%= order.name %></a>
+        <% if order.status == "Processing" %>
+        <span class="label label-info">
+        <% elsif order.status == "Awaiting Payment" %>
+        <span class="label label">
+        <% elsif order.status == "Processed" %>
+        <span class="label label-success">
+        <% elsif order.status == "Failed" %>
+        <span class="label label-inverse">
+        <% elsif order.status == "Dispatched" %>
+        <span class="label label-success">
+        <% elsif order.status == "Rejected" %>
+        <span class="label label-important">
+        <% end %>
+        <%= order.status%></span>
+        <br>
+        <span class="meta"><%= order.created_at.strftime("Ordered on %d/%m/%Y at %I:%M%p") %></span>
+        
+    </td>
+    <td><%= number_to_currency(order.total_price, :unit => "£") %></td>
+    <td><%= link_to 'View Order', order, :class => "btn btn-small btn-primary"%></td>
+    <td><%= link_to 'Edit Order', edit_order_path(order), :class => "btn btn-small btn-primary" %></td>
+    <td><%= link_to 'Destroy Order', order, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small btn-primary" %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Order', new_order_path %>

@@ -1,11 +1,13 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :name, :price, :category_id, :image, :image_cache
+  attr_accessible :description, :name, :price, :category_id, :image, :image_cache, :stock
   mount_uploader :image, ImageUploader
   belongs_to :category
   has_many :cart_items
   has_many :orders, :through => :card_items
 
   default_scope :order => 'name'
+
+  validates :description, :name, :price, :category_id, :presence => true
 
   before_destroy :ensure_not_referenced_by_any_line_item
   # ensure that there are no cart items referencing this product

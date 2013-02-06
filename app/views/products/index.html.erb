@@ -1,11 +1,19 @@
+<div id="cart" class="right">
+  <%= render @cart %>
+</div>
+
+
+<div class="left">
 <h2>All products (A-Z)</h2>
 
 <% @products.each do |product| %>
   <div class="entry">
     <h3><%= link_to h(product.name), product %></h3>
-    <% if product.image_url %>
-    <%= image_tag(product.image_url) %><br />
-    <% end %>
+    <div class="product-image">
+      <% if product.image_url %>
+        <%= image_tag(product.image_url) %><br />
+      <% end %>
+    </div>
 
     <% if product.description? %>
     <%=sanitize product.description %><br />
@@ -20,3 +28,6 @@
     </div>
   </div>
 <% end %>
+</div>
+
+

@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all(:limit => 10)
+    @cart = current_cart
+  end
+
+  def manage
+    @products = Product.all
   end
   
   def show

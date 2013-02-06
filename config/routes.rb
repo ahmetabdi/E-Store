@@ -16,6 +16,9 @@ EStore::Application.routes.draw do
     get "/register" => "devise/registrations#new", :as => :new_user_registration
   end
 
+  get "/control-panel" => "admin#index"
+  get "/manage-products" => "products#manage"
+
   devise_for :users
 
   # The priority is based upon order of creation:

@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   has_many :cart_items, :dependent => :destroy
   attr_accessible :address, :email, :name, :pay_type, :status
   PAYMENT_TYPES = [ "Check", "Credit Card", "Paypal"]
-  STATUS_TYPES = [ "Processing", "Processed", "Rejected"]
+  STATUS_TYPES = [ "Processing", "Processed", "Rejected" , "Awaiting Payment", "Failed", "Dispatched"]
 
   validates :name, :address, :email, :pay_type, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES

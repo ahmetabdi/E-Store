@@ -1,21 +1,22 @@
 <% unless cart.cart_items.empty? %>
 
-<div class="cart_title"><b>Your Cart</b></div>
-  <table>
-    <tr>
-      <th>Product</th>
-      <th>Qty</th>
-      <th>Full Price</th>
-    </tr>
-  <%= render(cart.cart_items) %>
-  <tr>
-    <td colspan="2"><b>Total</b></td>
-    <td><%= number_to_currency(cart.total_price) %></td>
-  </tr>
-  </table>
+<div class="btn">
+  <div class="cart_title"><b>Your Cart</b></div>
+    <table class="table table-condensed">
+      <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Full Price</th>
+      </tr>
+      <%= render(cart.cart_items) %>
+      <tr>
+        <td colspan="2"><b>Total</b></td>
+        <td><%= number_to_currency(cart.total_price, :unit => "£") %></td>
+      </tr>
+    </table>
 
-<%= button_to "Checkout" , new_order_url, :method => :get, :class => "btn btn-mini" %>
+    <%= button_to "Checkout" , new_order_url, :method => :get, :class => "btn btn-mini btn-primary pull-right" %>
 
-<%= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-mini"  %>
 </div>
+
 <% end %>
