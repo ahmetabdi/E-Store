@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params[:product])
     if @product.save
       flash[:notice] = "Successfully created product."
-      redirect_to @product
+      redirect_to "/manage-products"
     else
       render :action => 'new'
     end

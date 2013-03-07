@@ -1,7 +1,7 @@
 <% unless cart.cart_items.empty? %>
 
 <div class="btn">
-  <div class="cart_title"><b>Your Cart</b></div>
+  <div class="cart_title"><b>Your Cart (<%= cart.cart_items.count %>)</b></div>
     <table class="table table-condensed">
       <tr>
         <th>Product</th>

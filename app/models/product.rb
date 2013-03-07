@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 
   default_scope :order => 'name'
 
-  validates :description, :name, :price, :category_id, :presence => true
+  validates :name, :price, :category_id, :presence => true
 
   before_destroy :ensure_not_referenced_by_any_line_item
   # ensure that there are no cart items referencing this product

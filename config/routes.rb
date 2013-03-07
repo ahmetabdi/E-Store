@@ -18,8 +18,11 @@ EStore::Application.routes.draw do
 
   get "/control-panel" => "admin#index"
   get "/manage-products" => "products#manage"
+  match 'search' => "search#index"
 
   devise_for :users
+  resources :users
+  match 'users' => "users#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

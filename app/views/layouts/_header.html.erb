@@ -4,19 +4,11 @@
 	<div class="navbar to-the-right">
 		<div class="navbar-inner">
 			<ul class="nav">
-				<li>
-					<div class="btn-group">
-  						<a class="btn btn-primary" href="<%= user_path(current_user)%>"><i class="icon-user icon-white"></i><%= current_user.username %></a>
-  						<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-  						<ul class="dropdown-menu">
-    						<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-    						<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-    						<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-    						<li class="divider"></li>
-    						<li><%= link_to "Logout", '/logout' %></li>
-  						</ul>
-					</div>
-				</li>
+				<li><%= link_to "Control Panel", '/control-panel' %></li>
+				<li class="divider-vertical"></li>
+				<li><%= link_to "My Account", user_path(current_user) %></li>
+				<li class="divider-vertical"></li>
+				<li><%= link_to "Logout", '/logout' %></li>
   			</ul>
   		</div>
 	</div>
@@ -24,7 +16,6 @@
 	<div class="navbar to-the-right">
 		<div class="navbar-inner">
 			<ul class="nav">
-				<li><%= link_to "Control Panel", '/control-panel' %></li>
 				<li><%= link_to "Register", '/register' %></li>
   				<li class="divider-vertical"></li>
   				<li><%= link_to "Login", '/login' %></li>
@@ -51,9 +42,9 @@
                     </li>
 					<li><%= link_to 'All Products', products_path %></a></li>
 				</ul>
-				<%= form_tag root_path, :class => 'navbar-form to-the-right', :method => 'get' do %>
+				<%= form_tag search_path, :class => 'navbar-form to-the-right', :method => 'get' do %>
     					<%= text_field_tag :search, params[:search], :class => 'span2', :placeholder => 'Search' %>
-					<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>

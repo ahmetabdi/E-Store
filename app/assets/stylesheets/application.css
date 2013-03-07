@@ -18,12 +18,15 @@
 .centered {padding-right; auto; padding-left: 50px; margin-right: auto; margin-left: auto; float: left; position; absolute; }
 
 .row-admin { height: 250px; width: 1100px;}
-.um {position: absolute; top: 150px; left: 60px; margin-top: 0px; margin-bottom: 60px;}
-.pm {position: absolute; top: 150px; left: 190px; margin-top: 0px; margin-bottom: 60px;}
-.ts {position: absolute; top: 150px; left: 320px; margin-top: 0px; margin-bottom: 60px;}
-.crm {position: absolute; top: 150px; left: 450px; margin-top: 0px; margin-bottom: 60px;}
-.sts {position: absolute; top: 150px; left: 520px; margin-top: 0px; margin-bottom: 60px;}
-.sts2 {position: absolute; top: 150px; left: 650px; margin-top: 0px; margin-bottom: 60px;}
+.admin1 {position: absolute; top: 180px; left: 60px; margin-top: 0px; margin-bottom: 60px;}
+.admin2 {position: absolute; top: 180px; left: 190px; margin-top: 0px; margin-bottom: 60px;}
+.admin3 {position: absolute; top: 180px; left: 320px; margin-top: 0px; margin-bottom: 60px;}
+.admin4 {position: absolute; top: 180px; left: 450px; margin-top: 0px; margin-bottom: 60px;}
+.admin5 {position: absolute; top: 180px; left: 580px; margin-top: 0px; margin-bottom: 60px;}
+.admin6 {position: absolute; top: 180px; left: 710px; margin-top: 0px; margin-bottom: 60px;}
+.mid1 {position: absolute; top: 350px; left: 60px; margin-top: 0px; margin-bottom: 60px;}
+.mid2 {position: absolute; top: 350px; left: 190px; margin-top: 0px; margin-bottom: 60px;}
+.bot1 {position: absolute; top: 520px; left: 60px; margin-top: 0px; margin-bottom: 60px;}
 .product-image {width: 120px;}
 
 .table td span.meta {font-size: 11px; color: #BBB;}

@@ -24,19 +24,12 @@ $(document).ready(function() {
 });
 </script>
 
-<div id="cart" class="right">
-  <%= render @cart %>
-</div>
-
-
 <div class="left">
-  
-<h1><%= @category.name %></h1>
 
 <div class="row-fluid">
   <ul class="thumbnails"> 
-    <% @category.products.each do |product| %>
-    <li class="item">
+    <% @products.each do |product| %>
+      <li class="item">
         <div class="thumbnail">
           <% if product.image_url %>
             <%= image_tag(product.image_url, :size => "150x150", :class => 'img-polaroid') %><br />
@@ -56,5 +49,8 @@ $(document).ready(function() {
 
         </div>
       </li>
-<% end %>
+    <% end %>
+  </ul> 
+</div>
+
 </div>

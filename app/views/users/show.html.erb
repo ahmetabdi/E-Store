@@ -1,0 +1,57 @@
+<%= form_for(@user) do |f| %>
+	<div class="hero-unit">
+		<h2>User Account</h2>
+		<!-- Email -->
+		<b>Email:</b><%= @user.email %><br />
+		<!-- Sign in count -->
+		<b>Sign in count:</b><%= @user.sign_in_count %><br />
+		<!-- User creation date -->
+		<% if @user.created_at.nil? %><% else%>
+		<b>Created on:</b><%= @user.created_at.strftime("%B %d, %Y at %I:%M%p") %>
+		<% end %><br />
+		<!-- Last signed in at -->
+		<b>Last seen:</b>
+		<% if @user.last_sign_in_at.nil? %>Never
+		<% else %><%= @user.last_sign_in_at.strftime("%B %d, %Y at %I:%M%p") %><% end %>
+
+		<h2>Your Orders</h2>
+		<table class="table table-bordered">
+  		<tr>
+    		<th>Orders</th>
+    		<th>Value</th>
+    		<th></th>
+  		</tr>
+
+		<% @orders.each do |order| %>
+		<% if current_user.email == order.email %>
+  		<tr>
+    		<td>
+        	<a href="/orders/<%= order.id %>">#<%= order.id %> - <%= order.name %></a>
+        	<% if order.status == "Processing" %>
+        	<span class="label label-info">
+        	<% elsif order.status == "Awaiting Payment" %>
+        	<span class="label label">
+        	<% elsif order.status == "Processed" %>
+        	<span class="label label-success">
+        	<% elsif order.status == "Failed" %>
+        	<span class="label label-inverse">
+        	<% elsif order.status == "Dispatched" %>
+        	<span class="label label-success">
+        	<% elsif order.status == "Rejected" %>
+        	<span class="label label-important">
+        	<% end %>
+        	<%= order.status%></span>
+        	<br>
+        	<span class="meta"><b><%= order.created_at.strftime("Ordered on %d/%m/%Y at %I:%M%p") %></b></span>
+    		</td>
+    		<td><%= number_to_currency(order.total_price, :unit => "£") %></td>
+    		<td><%= link_to 'View Order', order, :class => "btn btn-small btn-primary"%></td>
+  		</tr>
+  		<% else %>
+  		<tr><td colspan="3">You have no order's</td></tr>
+  		<% end %>
+		<% end %>
+		</table>
+	</div>
+
+<% end %>

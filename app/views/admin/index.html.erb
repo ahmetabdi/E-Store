@@ -1,6 +1,32 @@
 <div class="row-admin">
-<div class="um rollover" id="um"><a><center><%= link_to image_tag("Project.png", :alt => "Category", :height => "100"), new_category_path %></center><br /><center>Create a Category</center><br /></a></div>
-<div class="pm rollover" id="um"><a><center><%= link_to image_tag("Product.png", :alt => "Product", :height => "100"), new_product_path %></center><br /><center>Create a Product</center><br /></a></div>
-<div class="ts rollover" id="um"><a><center><%= link_to image_tag("Product.png", :alt => "Product", :height => "100"), 'manage-products' %></center><br /><center>Manage Products</center><br /></a></div>
-<div class="crm rollover" id="um"><a><center><%= link_to image_tag("Timesheet.png", :alt => "Orders", :height => "100"), orders_path %></center><br /><center>Manage Orders</center><br /></a></div>
+<div class="admin1 rollover">
+	<a>
+		<center><%= link_to image_tag("Project.png", :alt => "Category", :height => "100"), new_category_path %></center><br />
+		<center>Create a Category</center><br />
+	</a>
+</div>
+<div class="admin2 rollover">
+	<a>
+		<center><%= link_to image_tag("Project.png", :alt => "Category", :height => "100"), categories_path %></center><br />
+		<center>Manage Categories</center><br />
+	</a>
+</div>
+<div class="mid1 rollover">
+	<a>
+		<center><%= link_to image_tag("Product.png", :alt => "Product", :height => "100"), new_product_path %></center><br />
+		<center>Create a Product</center><br />
+	</a>
+</div>
+<div class="mid2 rollover">
+	<a>
+		<center><%= link_to image_tag("Product.png", :alt => "Product", :height => "100"), 'manage-products' %></center><br />
+		<center>Manage Products</center><br />
+	</a>
+</div>
+<div class="bot1 rollover">
+	<a>
+		<center><%= link_to image_tag("Timesheet.png", :alt => "Orders", :height => "100"), orders_path %></center><br />
+		<center>Manage Orders</center><br />
+	</a>
+</div>
 </div>
