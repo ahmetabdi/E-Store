@@ -11,6 +11,6 @@ User.create!( :email => "admin@estore.com",
               :password => "google555",
               :password_confirmation => "google555")
 #Normal User
-User.create!( :email => "test@skypig.com",
+User.create!( :email => "test@estore.com",
               :password => "tester1",
               :password_confirmation => "tester1")
